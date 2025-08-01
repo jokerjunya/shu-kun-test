@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ダッシュボード＆アラートスイート v0.1
 
-## Getting Started
+CSリスクをリアルタイムで監視・分析する統合ダッシュボードシステム
 
-First, run the development server:
+## 🎯 概要
+
+情報散在・要因特定の曖昧さ・フィードバック遅延を解決するため、BigQueryを中心としたデータ基盤上に**「トピックスダッシュボード」「CSリスクアラート」「要因分析モジュール」**を統合したスイートです。
+
+## ✨ 主要機能（v0.1実装済み）
+
+- 📊 **KPIダッシュボード**: 総CS数、不適合率、アラート数、対応時間の可視化
+- 📋 **CSリスクグリッド**: ソート・フィルタ機能付きのリスク一覧表示
+- 📱 **レスポンシブデザイン**: PC・タブレット・スマホ対応
+- 🎨 **Tailwind CSS 4**: モダンなUIコンポーネント設計
+- 🔄 **MockData連携**: 開発・テスト用データでの動的表示
+
+## 🚀 クイックスタート
 
 ```bash
+# 依存関係をインストール
+npm install
+
+# 開発サーバー起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# ブラウザで http://localhost:3000 にアクセス
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 技術スタック
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: Next.js 15, React, TypeScript
+- **Styling**: Tailwind CSS 4
+- **Build Tool**: Turbopack
+- **Future**: BigQuery, Looker Studio, Vertex AI, RAG
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📋 開発スケジュール
 
-## Learn More
+| スプリント | 期間 | 主要機能 | ステータス |
+|-----------|------|----------|-----------|
+| **S1** | 8/04-8/08 | 環境整備＋UIスケルトン | ✅ **完了** |
+| S2 | 8/11-8/15 | KPIカード＆グリッド完成 | 🔄 進行中 |
+| S3 | 8/18-8/22 | ドリルダウンUI/モーダル | ⏳ 予定 |
+| S4 | 8/25-8/29 | Looker Embed β | ⏳ 予定 |
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 成功指標（目標KPI）
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- アラート発行～対応開始: **2h → 1h（▲50%）**
+- 同一指摘再発率: **20% → 12%（▲40%）** 
+- 手動分析工数: **▲30%削減**
+- ナレッジ共有件数: **×2倍**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 プロジェクト構造
 
-## Deploy on Vercel
+```
+src/
+├── app/                    # Next.js App Router
+├── components/
+│   ├── layout/            # レイアウトコンポーネント
+│   ├── dashboard/         # ダッシュボード専用コンポーネント
+│   └── ui/                # 共通UIコンポーネント（予定）
+└── lib/                   # ユーティリティ・MockData
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 ドキュメント
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [企画書 v0.2](./ダッシュボード＆アラートスイート企画書_v_0.md)
+- [開発計画書 v0.1](./ダッシュボード＆アラートスイート_開発計画書_v_0.md)
+
+## 🔮 次期開発予定
+
+1. **Looker Studio埋込**: 実データでのチャート表示
+2. **SHAP + RAG分析**: 要因分析＋自動提案機能
+3. **Teams/Slack連携**: リアルタイムアラート通知
+4. **BigQuery接続**: 本番データ基盤との統合
+
+---
+
+**開発チーム**: 非エンジニア主体の"バイブコーディング"アプローチ  
+**次回デモ**: 8/08 PM（スプリントS1完了）
